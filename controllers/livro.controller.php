@@ -9,6 +9,5 @@
 
   $livro = array_pop($arrayFiltrado);
 
-  $view = 'livro';
 
-  require './views/template/app.php';
+  view('livro', compact('livro'));
