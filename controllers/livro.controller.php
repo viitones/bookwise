@@ -1,13 +1,13 @@
 <?php
 
-  require 'dados.php';
-
-
   $id = $_REQUEST['id'];
+  
+  $db = new DB();
 
-  $arrayFiltrado = array_filter($livros, fn($l) => $l['id'] == $id);
+  $livro = $db->livro($id);
 
-  $livro = array_pop($arrayFiltrado);
+
+  // dd(dump: $livro);
 
 
   view('livro', compact('livro'));
