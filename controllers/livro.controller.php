@@ -1,13 +1,7 @@
 <?php
 
-  $id = $_REQUEST['id'];
-  
-  $db = new DB();
+  $livro = (new DB)->livro($_REQUEST['id']);
 
-  $livro = $db->livro($id);
-
-
-  // dd(dump: $livro);
 
 
   view('livro', compact('livro'));
