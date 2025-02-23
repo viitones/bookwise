@@ -34,7 +34,6 @@ class DB {
 
     $prepare->execute($params);
 
-
     return $prepare;
   }
 };
