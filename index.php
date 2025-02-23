@@ -4,7 +4,7 @@
 
   require "models/livro.php";
 
-  $config = require("config.php");
+  $config = require"config.php";
 
   require "database.php";
 
