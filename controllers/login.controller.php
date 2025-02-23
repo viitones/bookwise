@@ -1,3 +1,5 @@
 <?php
 
-  view('login');
+  $mensagem = $_GET['mensagem'] ?? '';
+
+  view('login', compact('mensagem'));
