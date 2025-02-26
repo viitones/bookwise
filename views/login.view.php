@@ -99,7 +99,7 @@
         <input 
           type="password" 
           class="border-stone-800 border-2 bg-stone-900 text-sm rounded-md focus:outline-none px-2 py-1" placeholder="Pesquisar"
-          name="password"
+          name="senha"
         />        
       </div>
 
