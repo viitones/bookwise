@@ -1,5 +1,6 @@
 <?php
 
+use function PHPSTORM_META\type;
 
 class Validacao {
 
@@ -70,7 +71,8 @@ class Validacao {
   }
 
   public function falhou(){
+    dd($this->validacoes);
     $_SESSION['validacoes'] = $this->validacoes;
-    return sizeof($this->validacoes) >= 0;
+    return sizeof($this->validacoes) > 0;
   }
 }
