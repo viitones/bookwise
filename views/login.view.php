@@ -1,7 +1,7 @@
 
 <div class="mt-6 grid grid-cols-2 gap-2">
   <div class="border-2 border-stone-700 rounded">
-    <form action="" class="p-4 space-y-4">
+    <form action="" method="POST" class="p-4 space-y-4">
       <h1 class="border-b border-stone-700 text-stone-400 font-bold px-4 py-2">Login</h1>
 
       <div class="flex flex-col">
@@ -23,7 +23,7 @@
         <input 
           type="password" 
           class="border-stone-800 border-2 bg-stone-900 text-sm rounded-md focus:outline-none px-2 py-1" placeholder="Pesquisar"
-          name="password"
+          name="senha"
           required
         />        
       </div>

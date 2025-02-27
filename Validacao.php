@@ -4,7 +4,7 @@ use function PHPSTORM_META\type;
 
 class Validacao {
 
-  public $validacoes;
+  public $validacoes = [];
 
   public static function validar($regras, $dados) {
 
@@ -53,7 +53,7 @@ class Validacao {
   }
 
   private function min($min, $campo, $valor){
-    if(strlen($valor) <= $min) {
+    if(strlen($valor) < $min) {
       $this->validacoes [] = "O $campo deve ter no mínimo $min caracteres";
     }
   }
@@ -71,7 +71,6 @@ class Validacao {
   }
 
   public function falhou(){
-    dd($this->validacoes);
     $_SESSION['validacoes'] = $this->validacoes;
     return sizeof($this->validacoes) > 0;
   }
