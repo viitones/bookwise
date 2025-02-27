@@ -1,11 +1,13 @@
 <?php
 
+  require "models/livro.php";
+
+  require "models/usuario.php";
+
   session_start();
 
   require "functions.php";
-
-  require "models/livro.php";
-
+  
   $config = require"config.php";
 
   require "database.php";

@@ -12,7 +12,7 @@
           type="email" 
           class="border-stone-800 border-2 bg-stone-900 text-sm rounded-md focus:outline-none px-2 py-1" placeholder="Pesquisar"
           name="email"
-          required
+          
         />        
       </div>
 
@@ -24,7 +24,7 @@
           type="password" 
           class="border-stone-800 border-2 bg-stone-900 text-sm rounded-md focus:outline-none px-2 py-1" placeholder="Pesquisar"
           name="senha"
-          required
+          
         />        
       </div>
       <button type="submit" class="border-2 border-stone-800 bg-stone-900 text-stone-400 px-4 py-1 rounded hover:bg-stone-800 transition-all">Logar</button>
