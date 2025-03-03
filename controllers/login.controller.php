@@ -1,9 +1,6 @@
 <?php
+// dump($_SESSION);
 
-require 'Validacao.php';
-
-
-$mensagem = $_GET['mensagem'] ?? '';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   $email = $_POST['email'];
@@ -15,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     'senha' => ['required']
   ], $_POST);
 
-  if($validacao->falhou()) {
+  if($validacao->falhou('login')) {
     header('location: /login');
     exit();
   }
@@ -30,10 +27,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   if ($usuario) {
     $_SESSION['auth'] = $usuario;
-    $_SESSION['mensagem'] = 'Seja bem vindo ' . $usuario->nome . '!';
+
+    flash()->push('mensagem', 'Seja bem vindo ' . $usuario->nome . '!');
     header('Location: /');
     exit();
   }
 }
 
-view('login', compact('mensagem'));
+view('login');

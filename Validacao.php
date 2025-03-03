@@ -70,8 +70,16 @@ class Validacao {
     }
   }
 
-  public function falhou(){
-    $_SESSION['validacoes'] = $this->validacoes;
+  public function falhou($nomeCustomizado = null) {
+
+    $chave = 'validacoes';
+
+    if ($nomeCustomizado) {
+      $chave .= "_$nomeCustomizado";
+    }
+
+    flash()->push($chave, $this->validacoes);
+
     return sizeof($this->validacoes) > 0;
   }
 }

@@ -2,9 +2,13 @@
 
   require "models/livro.php";
 
+  require 'Validacao.php';
+
   require "models/usuario.php";
 
   session_start();
+
+  require "Flash.php";
 
   require "functions.php";
   
