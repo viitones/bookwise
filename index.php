@@ -2,8 +2,6 @@
 
   require "models/livro.php";
 
-  require 'Validacao.php';
-
   require "models/usuario.php";
 
   session_start();
@@ -12,8 +10,9 @@
 
   require "functions.php";
   
-  $config = require"config.php";
 
   require "database.php";
+
+  require 'Validacao.php';
 
   require "routes.php";

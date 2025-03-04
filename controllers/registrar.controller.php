@@ -6,7 +6,7 @@
     
     $validacao = Validacao::validar([
       'nome' => ['required'],
-      'email' => ['required', 'email', 'confirmed'],
+      'email' => ['required', 'email', 'confirmed', 'unique:usuarios'],
       'senha' => ['required', 'min:6', 'max:30', 'strong']
     ], $_POST);
 
@@ -30,3 +30,6 @@
     header('location: /login');
     exit();
   }
+
+  header('location: /login');
+  exit();

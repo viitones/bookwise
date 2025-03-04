@@ -6,6 +6,8 @@ class Validacao {
 
   public $validacoes = [];
 
+
+
   public static function validar($regras, $dados) {
 
     $validacao = new self;
@@ -33,6 +35,23 @@ class Validacao {
     return $validacao;
   }
 
+  private function unique($tabela, $campo, $valor) {
+    if(strlen($valor) == 0) {
+      return;
+    }
+
+    $db = new Database(config('database'));
+
+    $resultado = $db->query(
+      query: "SELECT * FROM $tabela WHERE $campo = :valor",
+      params:['valor' => $valor]
+    )->fetch();
+
+    if ($resultado) {
+      $this->validacoes [] = "O $campo já está em uso";
+    }
+  }
+
   private function required($campo, $valor) {
     if(strlen($valor) == 0) {
       $this->validacoes [] = "O $campo é obrigatório";
@@ -46,26 +65,25 @@ class Validacao {
   }
 
   private function confirmed($campo, $valor, $valorConfirmacao) {
-
     if($valor != $valorConfirmacao) {
-      $this->validacoes [] = "O $campo de confirmação está diferente";
+      $this->validacoes [] = "O $campo de confirmação está diferente.";
     }
   }
 
   private function min($min, $campo, $valor){
     if(strlen($valor) < $min) {
-      $this->validacoes [] = "O $campo deve ter no mínimo $min caracteres";
+      $this->validacoes [] = "O $campo deve ter no mínimo $min caracteres.";
     }
   }
 
   private function max($max, $campo, $valor){
-    if(strlen($valor > $max)) {
-      $this->validacoes [] = "O $campo deve ter no máximo $max caracteres";
+    if(strlen($valor) > $max) {
+      $this->validacoes [] = "A $campo deve ter no máximo $max caracteres";
     }
   }
 
   private function strong($campo, $valor){
-    if(! strpbrk($valor, '*@#%.,/')) {
+    if(! strpbrk($valor, '[]{}+-=;*@#%.,/')) {
       $this->validacoes [] = "A $campo deve ter um caractere especial nele";
     }
   }
