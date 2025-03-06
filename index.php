@@ -10,7 +10,6 @@
 
   require "functions.php";
   
-
   require "database.php";
 
   require 'Validacao.php';
