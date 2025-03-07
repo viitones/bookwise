@@ -5,10 +5,6 @@ if(! auth()){
   exit();
 }
 
-$livros = $database->query(
-  query: "select * from livros where usuario_id = :id",
-  params: ['id' => auth()->id],
-  class: Livro::class
-);
+$livros = Livro::meus(auth()->id);
 
 view('meus-livros', compact('livros'));
