@@ -27,7 +27,12 @@ if($validacao->falhou()) {
   exit();
 }
 
-$database->query("insert into livros (usuario_id, titulo, autor, descricao, ano_de_lancamento) values (:usuario_id, :titulo, :autor, :descricao, :ano_de_lancamento)", params: compact('usuario_id', 'titulo', 'autor', 'descricao', 'ano_de_lancamento'));
+$database->query(
+  query: "insert into livros (usuario_id, titulo, autor, descricao, ano_de_lancamento) values (:usuario_id, :titulo, :autor, :descricao, :ano_de_lancamento)", 
+  params: compact(
+    'usuario_id', 'titulo', 'autor', 'descricao', 'ano_de_lancamento'
+  )
+);
 
 flash()->push('mensagem', 'Livro cadastrado com sucesso!');
 header('location: /meus-livros');
