@@ -31,7 +31,7 @@
 
 
 
-  <main class="mx-auto max-w-screen-lg space-y-10">
+  <main class="mx-auto px-2 max-w-screen-lg space-y-10">
 
     <?php if ($mensagem = flash()->get('mensagem')): ?>
 
