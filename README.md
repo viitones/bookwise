@@ -16,9 +16,7 @@ Bookwise é um sistema de gerenciamento de livros onde os usuários podem cadast
 
 ### Pré-requisitos
 
-- PHP 7.4 ou superior
-- Servidor web (Apache, Nginx, etc.)
-- Banco de dados SQLite
+- Herd
 - Beekeeper Studio (opcional, para gerenciar o banco de dados)
 
 ### Passos para Configuração
@@ -30,19 +28,11 @@ Bookwise é um sistema de gerenciamento de livros onde os usuários podem cadast
    cd bookwise
    ```
 
-2. **Configure o banco de dados:**
-
-   Crie um banco de dados SQLite e configure o caminho no arquivo de configuração.
-
-   ```bash
-   touch database.sqlite
-   ```
-
-3. **Configure o banco de dados no Beekeeper Studio (opcional):**
+2. **Configure o banco de dados no Beekeeper Studio (opcional):**
 
    Abra o Beekeeper Studio e conecte-se ao banco de dados SQLite criado.
 
-4. **Inicie o servidor:**
+3. **Inicie o servidor:**
 
    Inicie o servidor web e acesse o projeto no navegador.
 
@@ -50,9 +40,9 @@ Bookwise é um sistema de gerenciamento de livros onde os usuários podem cadast
    php -t public/ -S localhost:8888 -d auto_prepend_file=server.php
    ```
 
-5. **Acesse o sistema:**
+4. **Acesse o sistema:**
 
-   Abra o navegador e acesse `http://localhost:8000` para começar a usar o Bookwise.
+   Abra o navegador e acesse `http://localhost:8888` para começar a usar o Bookwise.
 
 ## Estrutura do Projeto
 
