@@ -2,14 +2,14 @@
 
 <div class="grid grid-cols-4 gap-4">
   <div class="col-span-3 gap-4 flex flex-col">
-    <?php foreach ($livros as $livro){
+    <?php foreach ($livros as $livro) {
       require 'partials/_livro.php';
     } ?>
   </div>
   <div>
     <div class="border border-stone-700 rounded">
       <h1 class="border-b border-stone-700 text-stone-400 font-bold px-4 py-2">Cadastre um novo livro!</h1>
-      <form action="/livro-criar" method="POST" class="p-4 space-y-4">
+      <form action="/livro-criar" method="POST" enctype="multipart/form-data" class="p-4 space-y-4">
         <?php if ($validacoes = flash()->get('validacoes')):  ?>
 
 
@@ -26,6 +26,16 @@
           </div>
 
         <?php endif; ?>
+
+        <div class="flex flex-col">
+          <label for="" class="text-stone-400 mb-1">
+            Imagem
+          </label>
+          <input
+            type="file"
+            class="border-stone-800 border-2 bg-stone-900 text-sm rounded-md focus:outline-none px-2 py-1"
+            name="imagem" />
+        </div>
 
         <div class="flex flex-col">
           <label for="" class="text-stone-400 mb-1">

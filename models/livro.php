@@ -6,12 +6,11 @@ class Livro
   public $titulo;
   public $autor;
   public $descricao;
-
   public $ano_de_lancamento;
-
   public $usuario_id;
   public $nota_avaliacao;
   public $count_avaliacoes;
+  public $imagem;
 
   public function query($where, $params)
   {
@@ -21,7 +20,7 @@ class Livro
     return $database->query(
       query: " 
       select 
-        l.id, l.titulo, l.autor, l.descricao, l.ano_de_lancamento,
+        l.id, l.titulo, l.autor, l.descricao, l.ano_de_lancamento, l.imagem,
         ifnull(round(sum(a.nota) / 5.0), 0) as nota_avaliacao, 
         ifnull(count(a.id), 0) as count_avaliacoes
       from
@@ -34,7 +33,8 @@ class Livro
         l.titulo,
         l.autor, 
         l.descricao,
-        l.ano_de_lancamento
+        l.ano_de_lancamento,
+        l.imagem
       ",
       class: self::class,
       params: $params

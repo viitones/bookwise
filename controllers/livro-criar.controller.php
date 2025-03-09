@@ -27,10 +27,24 @@ if($validacao->falhou()) {
   exit();
 }
 
+
+$extensao = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
+
+$newName = md5(uniqid(rand(), true)) . ".$extensao";
+
+$imagem = "images/$newName";
+
+move_uploaded_file($_FILES['imagem']['tmp_name'], $imagem);
+
+// dd( $imagem);
+
+
 $database->query(
-  query: "insert into livros (usuario_id, titulo, autor, descricao, ano_de_lancamento) values (:usuario_id, :titulo, :autor, :descricao, :ano_de_lancamento)", 
+  query: 
+    "insert into livros (usuario_id, titulo, autor, descricao, ano_de_lancamento, imagem) 
+    values (:usuario_id, :titulo, :autor, :descricao, :ano_de_lancamento, :imagem)", 
   params: compact(
-    'usuario_id', 'titulo', 'autor', 'descricao', 'ano_de_lancamento'
+    'usuario_id', 'titulo', 'autor', 'descricao', 'ano_de_lancamento', 'imagem'
   )
 );
 
