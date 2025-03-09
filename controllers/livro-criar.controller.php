@@ -34,9 +34,7 @@ $newName = md5(uniqid(rand(), true)) . ".$extensao";
 
 $imagem = "images/$newName";
 
-move_uploaded_file($_FILES['imagem']['tmp_name'], $imagem);
-
-// dd( $imagem);
+move_uploaded_file($_FILES['imagem']['tmp_name'], __DIR__ . "/../public/$imagem");
 
 
 $database->query(
